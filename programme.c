@@ -96,10 +96,10 @@ void affichageActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[
         for (i = 0; i < tlogA; i++)
             if (tabIDActi[i] == idA)
               printf("identifiants Activité: %d\n nombre de participant matin : %d\n  nombre de participant soir: %d\n coût %.2f\n", tabIDActi[i], tabNbM[i], tabNbS[i], tabPtsActi[i]);
-            else printf("l'activité n'existe pas");
+            else printf("l'activité n'existe pas\n");
             }         
     if (rep == 2) {
-        printf("Identifiant\t Points\t Status\t Nombre d'activité\t Activité matin\t Activité après-midi\n");
+        printf("Identifiant \t  nombre activité matin \t nombre activité après-midi\t Points\n");
         for (i = 0; i < tlogA; i++)
             printf("%d \t %d \t %d \t %.2f \n", tabIDActi[i], tabNbM[i], tabNbS[i], tabPtsActi[i]);
     }
