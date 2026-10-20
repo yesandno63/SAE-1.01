@@ -1,8 +1,8 @@
 
 #include <stdio.h>
 #include "prototype.h"
-int chargementAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], int tabActiM[], int tabActiS[],int max){
-    /* fonction pour charger depuis le fichiers adhérents */
+int chargementAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], int tabActiM[], int tabActiS[],int max)
+{
     FILE *flot;
     
     int tlog, id,nbActi,status, i=0;
@@ -34,7 +34,6 @@ int chargementAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], i
 
 int chargementActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[], int max)
 { 
-    /* fonction de chargement du fichier actvitées */
     FILE *flot;
     int idActi, nbM,nbS, tlog = 0;
     float ptsA;
@@ -61,7 +60,7 @@ int chargementActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[
     return tlog;
 }
 
-void affichageAd(int tabID[],float tabPts[],int tabStatus, int tabNb_Acti[], int tabActiM[], int tabActiS[],int tlog){
+void affichageAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], int tabActiM[], int tabActiS[],int tlog){
     int i, id,rep;
     
 
@@ -102,7 +101,7 @@ void affichageActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[
     if (rep == 2) {
         printf("Identifiant\t Points\t Status\t Nombre d'activité\t Activité matin\t Activité après-midi\n");
         for (i = 0; i < tlogA; i++)
-            printf("%d\t %.2f\t %d\t %d\t %d\t %d\n", tabIDActi[i], tabNbM[i], tabNbS[i], tabPtsActi[i]);
+            printf("%d \t %d \t %d \t %.2f \n", tabIDActi[i], tabNbM[i], tabNbS[i], tabPtsActi[i]);
     }
     while(rep != 1 && rep != 2){
         printf("erreur de saisie, vous devez entrez 1 ou 2, veuillez réessayer : ");
