@@ -20,7 +20,6 @@ void testeCharActi(void){
 }
 
 int main(void){
-    testeCharAd();
-    testeCharActi();
+    menu();
     return 0;
 }

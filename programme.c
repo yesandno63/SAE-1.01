@@ -148,22 +148,25 @@ void menu(void) {
     tlogA=chargementAd(tabID,tabPts,tabStatus,tabNb_Acti,tabActiM,tabActiS,max);
     tlogActi=chargementActi(tabIDActi,tabNbM,tabNbS,tabPtsActi,max);
 
-    printf("1. Menu Adherent\n");
-    printf("2. Menu Activite\n");
-    printf("3. Exit\n");
-    printf("Choix: ");
-    scanf("%d", &choix);
+    while (1) {
+        printf("1. Menu Adherent\n");
+        printf("2. Menu Activite\n");
+        printf("3. Exit\n");
+        printf("   Choix: ");
+        scanf("%d", &choix);
 
+        if (choix == 1) {
 
-    if (choix == 1) {
+        }
+        else if (choix == 2) {
 
+        }
+        else if (choix == 3) {
+            saveAd(tabID,tabPts,tabStatus,tabNb_Acti,tabActiM,tabActiS,tlogA);
+            saveActi(tabActiM,tabNbM,tabNbS,tabPtsActi,tlogA);
+            printf("Sauvegarde effectue");
+            exit(1);
+        }
     }
-    else if (choix == 2) {
 
-    }
-    else if (choix == 3) {
-        saveAd(tabID,tabPts,tabStatus,tabNb_Acti,tabActiM,tabActiS,tlogA);
-        saveActi(tabActiM,tabNbM,tabNbS,tabPtsActi,tlogA);
-        printf("Sauvegarde effectue");
-    }
 }
