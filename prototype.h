@@ -14,3 +14,7 @@ void saveActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[],int
 
 /*fonction de menu*/
 void menu(void);
+
+/*fonction de manipulation des lites*/
+int recherche(int tab[], int val, int tlog, int *trouve);
+int supprimerAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], int tabActiM[], int tabActiS[],int val,int tlog);

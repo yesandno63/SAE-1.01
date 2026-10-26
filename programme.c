@@ -133,6 +133,22 @@ void saveAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], int ta
     fclose(flot);
 }
 
+int recherche(int tab[], int val, int tlog, int *trouve) {
+    int i;
+
+    for (i=0; i<tlog; ++i) {
+        if (tab[i] == val) {
+            *trouve=1;
+            return i;
+        }
+        if (tab[i] > val) {
+            *trouve=0;
+            return i;
+        }
+    }
+    *trouve=0;
+    return i;
+}
 
 void menu(void) {
     int choix,tlogA,tlogActi, pos;
@@ -163,7 +179,7 @@ void menu(void) {
         }
         else if (choix == 3) {
             saveAd(tabID,tabPts,tabStatus,tabNb_Acti,tabActiM,tabActiS,tlogA);
-            saveActi(tabActiM,tabNbM,tabNbS,tabPtsActi,tlogA);
+            saveActi(tabActiM,tabNbM,tabNbS,tabPtsActi,tlogActi);
             printf("Sauvegarde effectue");
             exit(1);
         }
