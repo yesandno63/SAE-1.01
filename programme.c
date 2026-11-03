@@ -310,12 +310,68 @@ void saisirActivite(int *id, int *nbreM, int *nbreS, float *ptsActi) {
     scanf("%f", ptsActi);
 }
 
+int participation(int tabID[], int tabIDActi[], float tabPts[], float tabPtsActi[], int tabStatus[], int tabNb_Acti[],int tabNbS[],int tabNbM[], int tabActiM[], int tabActiS[],int tlogA, int *trouveAd, int *trouveActi, int idAdherent, int idActivite, int *nbSad, int *nbMad, float *ptsAd,int *nbTotAd, int *nbAS,int *nbAM) {
+    int choix ;
+    
+    int posAdherent = recherche(tabID, idAdherent, tlogA, trouveAd);
+    if (trouveAd == 0) {
+        printf("L'adhérent avec l'identifiant %d n'existe pas.\n", idAdherent);
+        return -3; // Adhérent non trouvé
+    }
 
-void menuAdherent(int tlogA,int tabID[], int tabStatus[], int tabNb_Acti[], int tabActiM[], int tabActiS[], float tabPts[]) {
-    int choix, pos;
-    int id, status, nbActi, actiM, actiS, val;
-    float pts;
+    int posActivite = recherche(tabIDActi, idActivite, tlogA, trouveActi);
+    if (trouveActi == 0) {
+        printf("L'activité avec l'identifiant %d n'existe pas.\n", idActivite);
+        return -3; // Activité non trouvée
+    }
+
+    if (tabStatus[posAdherent] == 0) {
+        printf("L'adhérent avec l'identifiant %d n'a pas de statut valide pour participer à une activité.\n", idAdherent);
+        return -2; // Statut non valide ( statu = 0 )
+    }
+
+    if ((tabNb_Acti[posAdherent]) >= 2) {
+        printf("L'adhérent avec l'identifiant %d a déjà atteint le nombre maximum d'activités.\n", idAdherent);
+        return -4; // Nombre maximum d'activités atteint
+    }
+
+    if ((tabPts[posAdherent]) < tabPtsActi[posActivite]) {
+        printf("L'adhérent avec l'identifiant %d n'a pas assez de points pour participer à l'activité avec l'identifiant %d.\n", idAdherent, idActivite);
+        return -1; // Points insuffisants
+    }
+
+    printf("ajout l'activité le matin ou l'après-midi ? (1 pour matin, 2 pour après-midi) : \n");
+    scanf("%d", &choix);
+    while (choix != 1 && choix != 2) {
+        printf("Erreur : vous devez entrer 1 pour le matin ou 2 pour l'après-midi. Veuillez réessayer : \n");
+        scanf("%d", &choix);
+    }
+
+    if (choix == 1) {
+        *nbMad = tabActiM[posAdherent]+1;
+        *nbAM = tabNbM[posActivite]+1;
+        *nbTotAd= tabNb_Acti[posAdherent]+1;
+        *ptsAd  = tabPts[posAdherent] - tabPtsActi[posActivite];
+        printf("il vous reste %.2f points\n", *ptsAd);
+        return 1;
+    } else {
+        *nbSad = tabActiS[posAdherent]+1;
+        *nbAS = tabNbS[posActivite]+1;
+        *nbTotAd = tabNb_Acti[posAdherent]+1;
+        *ptsAd = tabPts[posAdherent] - tabPtsActi[posActivite];
+        printf("il vous reste %.2f points\n", *ptsAd);
+        return 1;
+    }
+    
+}
+
+void menuAdherent(int tlogA,int tabID[], int tabStatus[], int tabNb_Acti[], int tabActiM[], int tabActiS[], float tabPts[], float tabPtsActi[], int tabIDActi[],int tabNbS[],int tabNbM[]) {
+    int choix, pos, res;
+    int id, status, nbActi, actiM, actiS, val, val2;
+    int nbSad,  nbMad ,nbTotAd,  nbAS, nbAM;
+    float pts, ptsAd;
     int max=200;
+    int trouveAd, trouveActi;
 
     
 
@@ -323,7 +379,8 @@ void menuAdherent(int tlogA,int tabID[], int tabStatus[], int tabNb_Acti[], int 
         printf("1. Afficher adherent\n");
         printf("2. Ajouter adherent\n");
         printf("3. Supprimer adherent\n");
-        printf("4. Retour au menu principal\n");
+        printf("4. Participer à une activité\n");
+        printf("5. Retour au menu principal\n");
         printf("   Choix: ");
         scanf("%d", &choix);
 
@@ -339,7 +396,23 @@ void menuAdherent(int tlogA,int tabID[], int tabStatus[], int tabNb_Acti[], int 
             scanf("%d", &val);
             tlogA = supprimerAd(tabID, tabPts, tabStatus, tabNb_Acti, tabActiM, tabActiS, val, tlogA);
         }
-        else if (choix == 4) {
+        else if(choix == 4){
+            printf("Entrez l'identifiant de l'adhérent : ");
+            scanf("%d", &val2);
+            printf("Entrez l'identifiant de l'activité : ");
+            scanf("%d", &val);
+            res = participation(tabID,tabIDActi, tabPts, tabPtsActi, tabStatus, tabNb_Acti, tabNbS, tabNbM, tabActiM, tabActiS, tlogA, &trouveAd, &trouveActi, val2, val, &nbSad, &nbMad, &ptsAd, &nbTotAd, &nbAS, &nbAM);
+            tabPts[trouveAd] = ptsAd;
+            tabNb_Acti[trouveAd] = nbTotAd;
+            tabActiM[trouveAd] = nbMad;
+            tabActiS[trouveAd] = nbSad;
+            tabNbM[trouveActi] = nbAM;
+            tabNbS[trouveActi] = nbAS;
+            if (res == 1) {
+                printf("Participation réussie.\n");
+            }
+        }
+        else if (choix == 5) {
             break; // Retour au menu principal
         }
     }
@@ -403,7 +476,7 @@ void global(void) {
         scanf("%d", &choix);
 
         if (choix == 1) {
-            menuAdherent(tlogA, tabID, tabStatus, tabNb_Acti, tabActiM, tabActiS, tabPts);
+            menuAdherent(tlogA, tabID, tabStatus, tabNb_Acti, tabActiM, tabActiS, tabPts, tabPtsActi, tabIDActi, tabNbS, tabNbM);
         }
         else if (choix == 2) {
             menuActivite(tlogActi, tabIDActi, tabNbM, tabNbS, tabPtsActi);
