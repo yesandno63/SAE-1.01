@@ -41,8 +41,8 @@ void testPart(void){
     int pos, tabID[15], tabStatus[15], tabNb_Acti[15], tabActiM[15], tabActiS[15];
     float tabPts[15]; 
     tlogA = chargementAd(tabID,tabPts,tabStatus,tabNb_Acti,tabActiM,tabActiS,15);
-    int trouveAd, trouveActi, nbSad, nbMad, nbTotAd, nbAS, nbAM;
-    float ptsAd;
+    int trouveAd, trouveActi;
+    
 
     int tlogActi = 0;
     int pos2, tabIDActi[15], tabNbM[15], tabNbS[15];
@@ -57,8 +57,8 @@ void testPart(void){
     printf("entrez un identifiant d'activité : ");
     scanf("%d", &idActivite);
     
-
-    int result = participation(tabID, tabIDActi, tabPts, tabPtsActi, tabStatus, tabNb_Acti, tabNbS, tabNbM, tabActiM, tabActiS, tlogA, &trouveAd, &trouveActi, idAdherent, idActivite, &nbSad, &nbMad, &ptsAd, &nbTotAd, &nbAS, &nbAM);
+    printf("les pts initial sont : %.2f\n", tabPts[recherche(tabID, idAdherent, tlogA, &trouveAd)]);
+    int result = participation(tabID, tabIDActi, tabPts, tabPtsActi, tabStatus, tabNb_Acti, tabNbS, tabNbM, tabActiM, tabActiS, tlogA, &trouveAd, &trouveActi, idAdherent, idActivite);
     printf("Résultat de la participation : %d\n", result);
 }
 

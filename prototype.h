@@ -28,8 +28,8 @@ void saisirAdherent(int *id, int *status, int *nbActi, int *actiM, int *actiS, f
 void saisirActivite(int *id, int *nbreM, int *nbreS, float *ptsActi);
 
 /*fonction de participation aux activités*/
-int participation(int tabID[], int tabIDActi[], float tabPts[], float tabPtsActi[], int tabStatus[], int tabNb_Acti[],int tabNbS[],int tabNbM[], int tabActiM[], int tabActiS[],int tlogA, int *trouveAd, int *trouveActi, int idAdherent, int idActivite, int *nbSad, int *nbMad, float *ptsAd,int *nbTotAd, int *nbAS,int *nbAM);
+int participation(int tabID[], int tabIDActi[], float tabPts[], float tabPtsActi[], int tabStatus[], int tabNb_Acti[],int tabNbS[],int tabNbM[], int tabActiM[], int tabActiS[],int tlogA, int *trouveAd, int *trouveActi, int idAdherent, int idActivite);
 /*changement de statut*/
-
+void changerStatut(int tabID[], int tabStatus[], int tlogA, int idAdherent);
 /*fonction de Global*/
 void global(void);

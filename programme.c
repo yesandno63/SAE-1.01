@@ -149,6 +149,11 @@ int supprimerAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], in
         printf("L'adhérent avec l'identifiant %d n'existe pas.\n", val);
         return tlog; // Aucun changement dans le tableau
     }
+    if (trouve == 1 && tabPts[pos] != 0) {
+        printf("L'adhérent avec l'identifiant %d ne peut pas être supprimé car il a encore des points.\n", val);
+        printf("vous aller etre rembourse de 80%% de vos points soit %.2f\n", tabPts[pos]*0.8);
+        return tlog; // Aucun changement dans le tableau
+    }
 
     for ( i = pos; i < tlog - 1; ++i) {
         tabID[i] = tabID[i + 1];
@@ -208,7 +213,7 @@ void insertMajAd(int tabId[],int tabStatus[],int tabNb_Acti[],int  tabActiM[],in
     int trouve;
     int pos = recherche(tabId, id, *tlogA, &trouve);
 
-    if (trouve) {
+    if (trouve == 1) {
         tabPts[pos] = pts;
         tabStatus[pos] = status;
         tabNb_Acti[pos] = nbActi;
@@ -216,7 +221,7 @@ void insertMajAd(int tabId[],int tabStatus[],int tabNb_Acti[],int  tabActiM[],in
         tabActiS[pos] = actiS;
         printf("les données ont été mises à jour");
     }
-
+    
     for (int i = *tlogA; i > pos; --i) {
         tabId[i] = tabId[i - 1];
         tabPts[i] = tabPts[i - 1];
@@ -225,9 +230,11 @@ void insertMajAd(int tabId[],int tabStatus[],int tabNb_Acti[],int  tabActiM[],in
         tabActiM[i] = tabActiM[i - 1];
         tabActiS[i] = tabActiS[i - 1];
     }
+    if (trouve == 0) 
+        printf("il vous est offère 30 pts lors de l'inscription\n");
 
     tabId[pos] = id;
-    tabPts[pos] = pts;
+    tabPts[pos] = pts + 30;
     tabStatus[pos] = status;
     tabNb_Acti[pos] = nbActi;
     tabActiM[pos] = actiM;
@@ -287,6 +294,7 @@ void saisirAdherent(int *id, int *status, int *nbActi, int *actiM, int *actiS, f
     scanf("%d", actiM);
     printf("Entrez le nombre d'activités de l'après-midi : ");
     scanf("%d", actiS);
+
     while(*actiM + *actiS != *nbActi) {
         printf("Erreur : le nombre total d'activités ne correspond pas au nombre d'activités du matin et de l'après-midi. Veuillez réessayer : ");
         printf("Entrez le nombre d'activités du matin : ");
@@ -299,18 +307,35 @@ void saisirAdherent(int *id, int *status, int *nbActi, int *actiM, int *actiS, f
 
 void saisirActivite(int *id, int *nbreM, int *nbreS, float *ptsActi) {
 
-
     printf("Entrez l'identifiant de l'activité : ");
     scanf("%d", id);
+    while (*id <= 0) {
+        printf("Erreur : l'identifiant de l'activité doit être un entier positif. Veuillez réessayer : ");
+        scanf("%d", id);
+    }
+    
     printf("Entrez le nombre de participants du matin : ");
     scanf("%d", nbreM);
+    while (*nbreM < 0) {
+        printf("Erreur : le nombre de participants du matin doit être un entier positif. Veuillez réessayer : ");
+        scanf("%d", nbreM);
+    }
     printf("Entrez le nombre de participants de l'après-midi : ");
     scanf("%d", nbreS);
+    while (*nbreS < 0) {
+        printf("Erreur : le nombre de participants de l'après-midi doit être un entier positif. Veuillez réessayer : ");
+        scanf("%d", nbreS);
+    }
+    
     printf("Entrez les points de l'activité : ");
     scanf("%f", ptsActi);
+    while (*ptsActi < 0) {
+        printf("Erreur : les points de l'activité doivent être un nombre positif. Veuillez réessayer : ");
+        scanf("%f", ptsActi);
+    }
 }
 
-int participation(int tabID[], int tabIDActi[], float tabPts[], float tabPtsActi[], int tabStatus[], int tabNb_Acti[],int tabNbS[],int tabNbM[], int tabActiM[], int tabActiS[],int tlogA, int *trouveAd, int *trouveActi, int idAdherent, int idActivite, int *nbSad, int *nbMad, float *ptsAd,int *nbTotAd, int *nbAS,int *nbAM) {
+int participation(int tabID[], int tabIDActi[], float tabPts[], float tabPtsActi[], int tabStatus[], int tabNb_Acti[],int tabNbS[],int tabNbM[], int tabActiM[], int tabActiS[],int tlogA, int *trouveAd, int *trouveActi, int idAdherent, int idActivite) {
     int choix ;
     
     int posAdherent = recherche(tabID, idAdherent, tlogA, trouveAd);
@@ -348,28 +373,69 @@ int participation(int tabID[], int tabIDActi[], float tabPts[], float tabPtsActi
     }
 
     if (choix == 1) {
-        *nbMad = tabActiM[posAdherent]+1;
-        *nbAM = tabNbM[posActivite]+1;
-        *nbTotAd= tabNb_Acti[posAdherent]+1;
-        *ptsAd  = tabPts[posAdherent] - tabPtsActi[posActivite];
-        printf("il vous reste %.2f points\n", *ptsAd);
+        tabActiM[posAdherent]++;
+        tabNbM[posActivite]++;
+        tabNb_Acti[posAdherent]++;
+        tabPts[posAdherent] -= tabPtsActi[posActivite];
+        printf("il vous reste %.2f points\n", tabPts[posAdherent]);
         return 1;
     } else {
-        *nbSad = tabActiS[posAdherent]+1;
-        *nbAS = tabNbS[posActivite]+1;
-        *nbTotAd = tabNb_Acti[posAdherent]+1;
-        *ptsAd = tabPts[posAdherent] - tabPtsActi[posActivite];
-        printf("il vous reste %.2f points\n", *ptsAd);
+        tabActiS[posAdherent]++;
+        tabNbS[posActivite]++;
+        tabNb_Acti[posAdherent]++;
+        tabPts[posAdherent] -= tabPtsActi[posActivite];
+        printf("il vous reste %.2f points\n", tabPts[posAdherent]);
         return 1;
     }
     
 }
 
+void changerStatut(int tabID[], int tabStatus[], int tlog, int idAdherent) {
+    int trouve;
+    int pos = recherche(tabID, idAdherent, tlog, &trouve);
+
+    if (trouve == 0) {
+        printf("L'adhérent avec l'identifiant %d n'existe pas.\n", idAdherent);
+        return; // Aucun changement dans le tableau
+    }
+    printf("Le statut actuel de l'adhérent avec l'identifiant %d est : %d\n", idAdherent, tabStatus[pos]);
+
+    /*saisie contrôler pour le satut*/
+    printf ("entrez le nouveau satut de l'adhérents (0 desactivé ou 1 activé) : ");
+    scanf("%d", &tabStatus[pos]);
+    while(tabStatus[pos] != 0 && tabStatus[pos] != 1){
+        printf("Erreur: le status doit valoir soit 0 ou 1. Veuillez réessayer : ");
+        scanf("%d", &tabStatus[pos]);
+    }
+    printf("Le statut de l'adhérent avec l'identifiant %d a été changé à %d.\n", idAdherent, tabStatus[pos]);
+}
+
+void crediterCarte(int tabID[], float tabPts[], int tlogA, int idAdherent, float mnt){
+    
+    int trouve;
+    int pos = recherche(tabID, idAdherent, tlogA, &trouve);
+
+    if (trouve == 0) {
+        printf("L'adhérent avec l'identifiant %d n'existe pas.\n", idAdherent);
+        return; // Aucun changement dans le tableau
+    }
+
+    if (mnt <= 0) {
+        printf("Le montant à créditer doit être positif et supérieur à zéro.\n");
+        return; // Aucun changement dans le tableau
+    }
+    else if (mnt > 250){
+        printf("vous obtnez un bonus de 10%% sur le montant \n");
+        mnt *= 1.1;
+    }
+    tabPts[pos] += mnt;
+    printf("Le solde de l'adhérent avec l'identifiant %d a été crédité de %.2f. Nouveau solde : %.2f\n", idAdherent, mnt, tabPts[pos]);
+}
+
 void menuAdherent(int tlogA,int tabID[], int tabStatus[], int tabNb_Acti[], int tabActiM[], int tabActiS[], float tabPts[], float tabPtsActi[], int tabIDActi[],int tabNbS[],int tabNbM[]) {
     int choix, pos, res;
     int id, status, nbActi, actiM, actiS, val, val2;
-    int nbSad,  nbMad ,nbTotAd,  nbAS, nbAM;
-    float pts, ptsAd;
+    float pts;
     int max=200;
     int trouveAd, trouveActi;
 
@@ -380,7 +446,8 @@ void menuAdherent(int tlogA,int tabID[], int tabStatus[], int tabNb_Acti[], int 
         printf("2. Ajouter adherent\n");
         printf("3. Supprimer adherent\n");
         printf("4. Participer à une activité\n");
-        printf("5. Retour au menu principal\n");
+        printf("5. Changer le statut d'un adherent\n");
+        printf("6. Retour au menu principal\n");
         printf("   Choix: ");
         scanf("%d", &choix);
 
@@ -401,26 +468,27 @@ void menuAdherent(int tlogA,int tabID[], int tabStatus[], int tabNb_Acti[], int 
             scanf("%d", &val2);
             printf("Entrez l'identifiant de l'activité : ");
             scanf("%d", &val);
-            res = participation(tabID,tabIDActi, tabPts, tabPtsActi, tabStatus, tabNb_Acti, tabNbS, tabNbM, tabActiM, tabActiS, tlogA, &trouveAd, &trouveActi, val2, val, &nbSad, &nbMad, &ptsAd, &nbTotAd, &nbAS, &nbAM);
-            tabPts[trouveAd] = ptsAd;
-            tabNb_Acti[trouveAd] = nbTotAd;
-            tabActiM[trouveAd] = nbMad;
-            tabActiS[trouveAd] = nbSad;
-            tabNbM[trouveActi] = nbAM;
-            tabNbS[trouveActi] = nbAS;
+            res = participation(tabID,tabIDActi, tabPts, tabPtsActi, tabStatus, tabNb_Acti, tabNbS, tabNbM, tabActiM, tabActiS, tlogA, &trouveAd, &trouveActi, val2, val);
             if (res == 1) {
                 printf("Participation réussie.\n");
             }
         }
         else if (choix == 5) {
+            printf("Entrez l'identifiant de l'adhérent : ");
+            scanf("%d", &val2);
+            changerStatut(tabID, tabStatus, tlogA, val2);
+        }
+        else if (choix == 6) {
             break; // Retour au menu principal
         }
     }
 }
 
+
+
 void menuActivite(int tlogActi, int tabIDActi[], int tabNbM[], int tabNbS[], float tabPtsActi[]) {
     int choix, pos;
-    int max=200;;
+    int max=200;
     
     int id, nbreM, nbreS, val;
     float ptsActi;

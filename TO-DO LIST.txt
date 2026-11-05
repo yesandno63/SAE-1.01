@@ -1,0 +1,13 @@
+- SEPARER LES FICHIER selon adhérents et activités pour eviter les redondance 
+— créer/ajouter un adhérent ;
+— supprimer un adhérent ;
+— alimenter en points la carte d’un adhérent ;
+— activer/désactiver la carte d’un adhérent (dans le cas d’une perte de carte, d’une
+sanction suite à un mauvais comportement, une carte retrouvée …) ;
+— afficher les informations d’un adhérent (numéro carte, solde de la carte, à combien
+d’activité a-t-il participé aujourd’hui, carte active ou pas …) ;
+— afficher tous les adhérents du centre ;
+— sélectionner (et donc payer en points) une activité que l’adhérent souhaite faire
+aujourd’hui.
+— afficher le nombre de sélections/d’inscriptions il y a eu dans la journée pour chaque
+activité. 
