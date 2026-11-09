@@ -1,4 +1,8 @@
-- SEPARER LES FICHIER selon adhérents et activités pour eviter les redondance 
+A FAIRE :
+
+
+FAIT :
+— SEPARER LES FICHIER selon adhérents et activités pour eviter les redondance
 — créer/ajouter un adhérent ;
 — supprimer un adhérent ;
 — alimenter en points la carte d’un adhérent ;
