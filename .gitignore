@@ -1,2 +1,7 @@
-/.idea
-/.vscode
+#DOSSIER
+.idea/
+.vscode/
+cmake-build-debug/
+
+#FICHIER
+CMakeLists.txt
