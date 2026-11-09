@@ -69,4 +69,3 @@ int main(void){
     //global();
     return 0;
 }
-```[cite: 4, 5, 6]
