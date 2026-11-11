@@ -65,7 +65,7 @@ int main(void){
     //testeCharAd();
     //testeMenuAd();
     //testeMenuActi();
-    testPart();
-    //global();
+    //testPart();
+    global();
     return 0;
 }

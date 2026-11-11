@@ -56,7 +56,7 @@ void affichageAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], i
 }
 
 void saveAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], int tabActiM[], int tabActiS[],int tlog) {
-    FILE *flot = fopen("/donnees/dossierAd.txt","a");
+    FILE *flot = fopen("donnees/dossierAd.txt","w");
     if (flot == NULL) {exit(1);}
 
     for (int i=0; i < tlog; i++) {

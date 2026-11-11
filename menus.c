@@ -13,28 +13,34 @@ void menuAdherent(int tlogA,int tabID[], int tabStatus[], int tabNb_Acti[], int 
     int trouveAd, trouveActi;
 
     while (1) {
+        printf("---------------------------------------\n");
         printf("1. Afficher adherent\n");
-        printf("2. Ajouter adherent\n");
+        printf("2. Ajouter ou Modifier un adherent\n");
         printf("3. Supprimer adherent\n");
         printf("4. Participer à une activité\n");
         printf("5. Changer le statut d'un adherent\n");
         printf("6. Retour au menu principal\n");
         printf("   Choix: ");
         scanf("%d", &choix);
+        
 
         if (choix == 1) {
+            printf("---------------------------------------\n");
             affichageAd(tabID,tabPts,tabStatus,tabNb_Acti,tabActiM,tabActiS,tlogA);
         }
         else if (choix == 2) {
+            printf("---------------------------------------\n");
             saisirAdherent(&id, &status, &nbActi, &actiM, &actiS, &pts);
             insertMajAd(tabID,tabStatus,tabNb_Acti,tabActiM,tabActiS,tabPts,&tlogA,max,id,pts,status,nbActi,actiM,actiS);
         }
         else if (choix == 3) {
+            printf("---------------------------------------\n");
             printf("entrez l'identifiant de l'adhérent à supprimer : ");
             scanf("%d", &val);
             tlogA = supprimerAd(tabID, tabPts, tabStatus, tabNb_Acti, tabActiM, tabActiS, val, tlogA);
         }
         else if(choix == 4){
+            printf("---------------------------------------\n");
             printf("Entrez l'identifiant de l'adhérent : ");
             scanf("%d", &val2);
             printf("Entrez l'identifiant de l'activité : ");
@@ -45,6 +51,7 @@ void menuAdherent(int tlogA,int tabID[], int tabStatus[], int tabNb_Acti[], int 
             }
         }
         else if (choix == 5) {
+            printf("---------------------------------------\n");
             printf("Entrez l'identifiant de l'adhérent : ");
             scanf("%d", &val2);
             changerStatut(tabID, tabStatus, tlogA, val2);
@@ -62,21 +69,26 @@ void menuActivite(int tlogActi, int tabIDActi[], int tabNbM[], int tabNbS[], flo
     float ptsActi;
 
     while (1) {
+        printf("---------------------------------------\n");
         printf("1. Afficher activite\n");
-        printf("2. Ajouter activite\n");
+        printf("2. Ajouter ou Modifier une activite\n");
         printf("3. Supprimer activite\n");
         printf("4. Retour au menu principal\n");
         printf("   Choix: ");
         scanf("%d", &choix);
+        
 
         if (choix == 1) {
+            printf("---------------------------------------\n");
             affichageActi(tabIDActi,tabNbM,tabNbS,tabPtsActi,tlogActi);
         }
         else if (choix == 2) {
+            printf("---------------------------------------\n");
             saisirActivite(&id, &nbreM, &nbreS, &ptsActi);
             insertMajActivite(tabIDActi,tabNbM,tabNbS,tabPtsActi,&tlogActi,max,id,nbreM,nbreS,ptsActi);
         }
         else if (choix == 3) {
+            printf("---------------------------------------\n");
             printf("entrez l'identifiant de l'activite à supprimer : ");
             scanf("%d", &val);
             tlogActi = supprimerActi(tabIDActi, tabNbM, tabNbS, tabPtsActi, val, tlogActi);
@@ -118,7 +130,7 @@ void global(void) {
         else if (choix == 3) {
             saveAd(tabID,tabPts,tabStatus,tabNb_Acti,tabActiM,tabActiS,tlogA);
             saveActi(tabActiM,tabNbM,tabNbS,tabPtsActi,tlogActi);
-            printf("Sauvegarde effectue");
+            printf("Sauvegarde effectue\n");
             exit(1);
         }
     }

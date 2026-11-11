@@ -54,7 +54,7 @@ void affichageActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[
 }
 
 void saveActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[],int tlog) {
-    FILE *flot = fopen("/donnees/dossierActi.txt","a");
+    FILE *flot = fopen("donnees/dossierActi.txt","w");
     if (flot == NULL) {exit(1);}
 
     for (int i=0; i < tlog; i++) {
