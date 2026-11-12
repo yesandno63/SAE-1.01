@@ -1,0 +1,74 @@
+\doxysection{adherent.\+h File Reference}
+\hypertarget{adherent_8h}{}\label{adherent_8h}\index{adherent.h@{adherent.h}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{adherent_8h_a387b80b651ee50451a103dcb9a0f7e0f}{chargement\+Ad}} (int tab\+ID\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+ActiM\+[$\,$]\+, int tab\+ActiS\+[$\,$]\+, int max)
+\item 
+void \doxymbox{\hyperlink{adherent_8h_a579bad4ae5db85d250b7d24fcb376b7e}{affichage\+Ad}} (int tab\+ID\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+ActiM\+[$\,$]\+, int tab\+ActiS\+[$\,$]\+, int tlog)
+\item 
+void \doxymbox{\hyperlink{adherent_8h_ab07060cf2a0f305e30a4750386ac2ab8}{save\+Ad}} (int tab\+ID\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+ActiM\+[$\,$]\+, int tab\+ActiS\+[$\,$]\+, int tlog)
+\item 
+int \doxymbox{\hyperlink{adherent_8h_a01305fa5d6f4b36ca06778d8cb749357}{supprimer\+Ad}} (int tab\+ID\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+ActiM\+[$\,$]\+, int tab\+ActiS\+[$\,$]\+, int val, int tlog)
+\item 
+void \doxymbox{\hyperlink{adherent_8h_a1c4708da5f72cb56572cefc395075ff6}{insert\+Maj\+Ad}} (int tab\+Id\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+ActiM\+[$\,$]\+, int tab\+ActiS\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, int \texorpdfstring{$\ast$}{*}tlogA, int max, int id, float pts, int status, int nb\+Acti, int actiM, int actiS)
+\item 
+void \doxymbox{\hyperlink{adherent_8h_a582e574ce00e16a5eba83909dec81b3a}{saisir\+Adherent}} (int \texorpdfstring{$\ast$}{*}id, int \texorpdfstring{$\ast$}{*}status, int \texorpdfstring{$\ast$}{*}nb\+Acti, int \texorpdfstring{$\ast$}{*}actiM, int \texorpdfstring{$\ast$}{*}actiS, float \texorpdfstring{$\ast$}{*}pts)
+\item 
+void \doxymbox{\hyperlink{adherent_8h_ae4fa99380bcb8498128c5740fa45a17e}{changer\+Statut}} (int tab\+ID\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tlog, int id\+Adherent)
+\item 
+void \doxymbox{\hyperlink{adherent_8h_a86d545bfa2bd1efa5e61d0196e5e7e87}{crediter\+Carte}} (int tab\+ID\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, int tlogA, int id\+Adherent, float mnt)
+\end{DoxyCompactItemize}
+
+
+\label{adherent_8h_doc-func-members}
+\Hypertarget{adherent_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{adherent_8h_a579bad4ae5db85d250b7d24fcb376b7e}\index{adherent.h@{adherent.h}!affichageAd@{affichageAd}}
+\index{affichageAd@{affichageAd}!adherent.h@{adherent.h}}
+\doxysubsubsection{\texorpdfstring{affichageAd()}{affichageAd()}}
+{\footnotesize\ttfamily \label{adherent_8h_a579bad4ae5db85d250b7d24fcb376b7e} 
+void affichage\+Ad (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+ActiM}{\+[$\,$], }\item[{int}]{tab\+ActiS}{\+[$\,$], }\item[{int}]{tlog}{}\end{DoxyParamCaption})}
+
+\Hypertarget{adherent_8h_ae4fa99380bcb8498128c5740fa45a17e}\index{adherent.h@{adherent.h}!changerStatut@{changerStatut}}
+\index{changerStatut@{changerStatut}!adherent.h@{adherent.h}}
+\doxysubsubsection{\texorpdfstring{changerStatut()}{changerStatut()}}
+{\footnotesize\ttfamily \label{adherent_8h_ae4fa99380bcb8498128c5740fa45a17e} 
+void changer\+Statut (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tlog}{, }\item[{int}]{id\+Adherent}{}\end{DoxyParamCaption})}
+
+\Hypertarget{adherent_8h_a387b80b651ee50451a103dcb9a0f7e0f}\index{adherent.h@{adherent.h}!chargementAd@{chargementAd}}
+\index{chargementAd@{chargementAd}!adherent.h@{adherent.h}}
+\doxysubsubsection{\texorpdfstring{chargementAd()}{chargementAd()}}
+{\footnotesize\ttfamily \label{adherent_8h_a387b80b651ee50451a103dcb9a0f7e0f} 
+int chargement\+Ad (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+ActiM}{\+[$\,$], }\item[{int}]{tab\+ActiS}{\+[$\,$], }\item[{int}]{max}{}\end{DoxyParamCaption})}
+
+\Hypertarget{adherent_8h_a86d545bfa2bd1efa5e61d0196e5e7e87}\index{adherent.h@{adherent.h}!crediterCarte@{crediterCarte}}
+\index{crediterCarte@{crediterCarte}!adherent.h@{adherent.h}}
+\doxysubsubsection{\texorpdfstring{crediterCarte()}{crediterCarte()}}
+{\footnotesize\ttfamily \label{adherent_8h_a86d545bfa2bd1efa5e61d0196e5e7e87} 
+void crediter\+Carte (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{int}]{tlogA}{, }\item[{int}]{id\+Adherent}{, }\item[{float}]{mnt}{}\end{DoxyParamCaption})}
+
+\Hypertarget{adherent_8h_a1c4708da5f72cb56572cefc395075ff6}\index{adherent.h@{adherent.h}!insertMajAd@{insertMajAd}}
+\index{insertMajAd@{insertMajAd}!adherent.h@{adherent.h}}
+\doxysubsubsection{\texorpdfstring{insertMajAd()}{insertMajAd()}}
+{\footnotesize\ttfamily \label{adherent_8h_a1c4708da5f72cb56572cefc395075ff6} 
+void insert\+Maj\+Ad (\begin{DoxyParamCaption}\item[{int}]{tab\+Id}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+ActiM}{\+[$\,$], }\item[{int}]{tab\+ActiS}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{int \texorpdfstring{$\ast$}{*}}]{tlogA}{, }\item[{int}]{max}{, }\item[{int}]{id}{, }\item[{float}]{pts}{, }\item[{int}]{status}{, }\item[{int}]{nb\+Acti}{, }\item[{int}]{actiM}{, }\item[{int}]{actiS}{}\end{DoxyParamCaption})}
+
+\Hypertarget{adherent_8h_a582e574ce00e16a5eba83909dec81b3a}\index{adherent.h@{adherent.h}!saisirAdherent@{saisirAdherent}}
+\index{saisirAdherent@{saisirAdherent}!adherent.h@{adherent.h}}
+\doxysubsubsection{\texorpdfstring{saisirAdherent()}{saisirAdherent()}}
+{\footnotesize\ttfamily \label{adherent_8h_a582e574ce00e16a5eba83909dec81b3a} 
+void saisir\+Adherent (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{id}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{status}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{nb\+Acti}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{actiM}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{actiS}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{pts}{}\end{DoxyParamCaption})}
+
+\Hypertarget{adherent_8h_ab07060cf2a0f305e30a4750386ac2ab8}\index{adherent.h@{adherent.h}!saveAd@{saveAd}}
+\index{saveAd@{saveAd}!adherent.h@{adherent.h}}
+\doxysubsubsection{\texorpdfstring{saveAd()}{saveAd()}}
+{\footnotesize\ttfamily \label{adherent_8h_ab07060cf2a0f305e30a4750386ac2ab8} 
+void save\+Ad (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+ActiM}{\+[$\,$], }\item[{int}]{tab\+ActiS}{\+[$\,$], }\item[{int}]{tlog}{}\end{DoxyParamCaption})}
+
+\Hypertarget{adherent_8h_a01305fa5d6f4b36ca06778d8cb749357}\index{adherent.h@{adherent.h}!supprimerAd@{supprimerAd}}
+\index{supprimerAd@{supprimerAd}!adherent.h@{adherent.h}}
+\doxysubsubsection{\texorpdfstring{supprimerAd()}{supprimerAd()}}
+{\footnotesize\ttfamily \label{adherent_8h_a01305fa5d6f4b36ca06778d8cb749357} 
+int supprimer\+Ad (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+ActiM}{\+[$\,$], }\item[{int}]{tab\+ActiS}{\+[$\,$], }\item[{int}]{val}{, }\item[{int}]{tlog}{}\end{DoxyParamCaption})}
+

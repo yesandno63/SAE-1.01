@@ -1,0 +1,146 @@
+\doxysection{prototype.\+h File Reference}
+\hypertarget{prototype_8h}{}\label{prototype_8h}\index{prototype.h@{prototype.h}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{prototype_8h_ac7a0158b9e545432eaf4c465de452134}{chargement\+Ad}} (int tab\+ID\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+Acti1\+[$\,$]\+, int tab\+Acti2\+[$\,$]\+, int max)
+\item 
+int \doxymbox{\hyperlink{prototype_8h_a5ef1ba5a03884c833ce0b59c66c55ab6}{chargement\+Acti}} (int tab\+IDActi\+[$\,$]\+, int nbreM\+[$\,$]\+, int nbreS\+[$\,$]\+, float pts\+Acti\+[$\,$]\+, int max)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_a579bad4ae5db85d250b7d24fcb376b7e}{affichage\+Ad}} (int tab\+ID\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+ActiM\+[$\,$]\+, int tab\+ActiS\+[$\,$]\+, int tlog)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_ad8a56600813d8bdedf0fc99b928d3289}{affichage\+Acti}} (int tab\+IDActi\+[$\,$]\+, int tab\+NbM\+[$\,$]\+, int tab\+NbS\+[$\,$]\+, float tab\+Pts\+Acti\+[$\,$]\+, int tlogA)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_ab07060cf2a0f305e30a4750386ac2ab8}{save\+Ad}} (int tab\+ID\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+ActiM\+[$\,$]\+, int tab\+ActiS\+[$\,$]\+, int tlog)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_a2297171e05ab4cafb78cbb616ae0c9a7}{save\+Acti}} (int tab\+IDActi\+[$\,$]\+, int tab\+NbM\+[$\,$]\+, int tab\+NbS\+[$\,$]\+, float tab\+Pts\+Acti\+[$\,$]\+, int tlog)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_a3fdf82925b75c205ab0b3154485a807e}{menu\+Adherent}} (int tlogA, int tab\+ID\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+ActiM\+[$\,$]\+, int tab\+ActiS\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, float tab\+Pts\+Acti\+[$\,$]\+, int tab\+IDActi\+[$\,$]\+, int tab\+NbS\+[$\,$]\+, int tab\+NbM\+[$\,$]\+)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_ae457c1626ca62b3f641a2f0527c36a2f}{menu\+Activite}} (int tlog\+Acti, int tab\+IDActi\+[$\,$]\+, int tab\+NbM\+[$\,$]\+, int tab\+NbS\+[$\,$]\+, float tab\+Pts\+Acti\+[$\,$]\+)
+\item 
+int \doxymbox{\hyperlink{prototype_8h_a4303aa4ec79e49a60d1a7fa2abea38f3}{recherche}} (int tab\+[$\,$]\+, int val, int tlog, int \texorpdfstring{$\ast$}{*}trouve)
+\item 
+int \doxymbox{\hyperlink{prototype_8h_a01305fa5d6f4b36ca06778d8cb749357}{supprimer\+Ad}} (int tab\+ID\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+ActiM\+[$\,$]\+, int tab\+ActiS\+[$\,$]\+, int val, int tlog)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_a1c4708da5f72cb56572cefc395075ff6}{insert\+Maj\+Ad}} (int tab\+Id\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+ActiM\+[$\,$]\+, int tab\+ActiS\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, int \texorpdfstring{$\ast$}{*}tlogA, int max, int id, float pts, int status, int nb\+Acti, int actiM, int actiS)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_ae2172feb72eb616287bb0fe208dfb1ae}{insert\+Maj\+Activite}} (int tab\+Id\+Acti\+[$\,$]\+, int tab\+NbM\+[$\,$]\+, int tab\+NbS\+[$\,$]\+, float tab\+Pts\+Acti\+[$\,$]\+, int \texorpdfstring{$\ast$}{*}tlogA, int max, int id, int nbreM, int nbreS, float pts\+Acti)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_a582e574ce00e16a5eba83909dec81b3a}{saisir\+Adherent}} (int \texorpdfstring{$\ast$}{*}id, int \texorpdfstring{$\ast$}{*}status, int \texorpdfstring{$\ast$}{*}nb\+Acti, int \texorpdfstring{$\ast$}{*}actiM, int \texorpdfstring{$\ast$}{*}actiS, float \texorpdfstring{$\ast$}{*}pts)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_a6366b992878d5889bf16f696490a8f92}{saisir\+Activite}} (int \texorpdfstring{$\ast$}{*}id, int \texorpdfstring{$\ast$}{*}nbreM, int \texorpdfstring{$\ast$}{*}nbreS, float \texorpdfstring{$\ast$}{*}pts\+Acti)
+\item 
+int \doxymbox{\hyperlink{prototype_8h_a65cf3cf5a9fb7faae8db6a071dc2512c}{participation}} (int tab\+ID\+[$\,$]\+, int tab\+IDActi\+[$\,$]\+, float tab\+Pts\+[$\,$]\+, float tab\+Pts\+Acti\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tab\+Nb\+\_\+\+Acti\+[$\,$]\+, int tab\+NbS\+[$\,$]\+, int tab\+NbM\+[$\,$]\+, int tab\+ActiM\+[$\,$]\+, int tab\+ActiS\+[$\,$]\+, int tlogA, int \texorpdfstring{$\ast$}{*}trouve\+Ad, int \texorpdfstring{$\ast$}{*}trouve\+Acti, int id\+Adherent, int id\+Activite)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_a5ccd62b3f4a819a543f4c70109ce1afc}{changer\+Statut}} (int tab\+ID\+[$\,$]\+, int tab\+Status\+[$\,$]\+, int tlogA, int id\+Adherent)
+\item 
+void \doxymbox{\hyperlink{prototype_8h_a7810f49a3dd30efbcab0c39b0fe3125d}{global}} (void)
+\end{DoxyCompactItemize}
+
+
+\label{prototype_8h_doc-func-members}
+\Hypertarget{prototype_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{prototype_8h_ad8a56600813d8bdedf0fc99b928d3289}\index{prototype.h@{prototype.h}!affichageActi@{affichageActi}}
+\index{affichageActi@{affichageActi}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{affichageActi()}{affichageActi()}}
+{\footnotesize\ttfamily \label{prototype_8h_ad8a56600813d8bdedf0fc99b928d3289} 
+void affichage\+Acti (\begin{DoxyParamCaption}\item[{int}]{tab\+IDActi}{\+[$\,$], }\item[{int}]{tab\+NbM}{\+[$\,$], }\item[{int}]{tab\+NbS}{\+[$\,$], }\item[{float}]{tab\+Pts\+Acti}{\+[$\,$], }\item[{int}]{tlogA}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a579bad4ae5db85d250b7d24fcb376b7e}\index{prototype.h@{prototype.h}!affichageAd@{affichageAd}}
+\index{affichageAd@{affichageAd}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{affichageAd()}{affichageAd()}}
+{\footnotesize\ttfamily \label{prototype_8h_a579bad4ae5db85d250b7d24fcb376b7e} 
+void affichage\+Ad (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+ActiM}{\+[$\,$], }\item[{int}]{tab\+ActiS}{\+[$\,$], }\item[{int}]{tlog}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a5ccd62b3f4a819a543f4c70109ce1afc}\index{prototype.h@{prototype.h}!changerStatut@{changerStatut}}
+\index{changerStatut@{changerStatut}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{changerStatut()}{changerStatut()}}
+{\footnotesize\ttfamily \label{prototype_8h_a5ccd62b3f4a819a543f4c70109ce1afc} 
+void changer\+Statut (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tlogA}{, }\item[{int}]{id\+Adherent}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a5ef1ba5a03884c833ce0b59c66c55ab6}\index{prototype.h@{prototype.h}!chargementActi@{chargementActi}}
+\index{chargementActi@{chargementActi}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{chargementActi()}{chargementActi()}}
+{\footnotesize\ttfamily \label{prototype_8h_a5ef1ba5a03884c833ce0b59c66c55ab6} 
+int chargement\+Acti (\begin{DoxyParamCaption}\item[{int}]{tab\+IDActi}{\+[$\,$], }\item[{int}]{nbreM}{\+[$\,$], }\item[{int}]{nbreS}{\+[$\,$], }\item[{float}]{pts\+Acti}{\+[$\,$], }\item[{int}]{max}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_ac7a0158b9e545432eaf4c465de452134}\index{prototype.h@{prototype.h}!chargementAd@{chargementAd}}
+\index{chargementAd@{chargementAd}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{chargementAd()}{chargementAd()}}
+{\footnotesize\ttfamily \label{prototype_8h_ac7a0158b9e545432eaf4c465de452134} 
+int chargement\+Ad (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+Acti1}{\+[$\,$], }\item[{int}]{tab\+Acti2}{\+[$\,$], }\item[{int}]{max}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a7810f49a3dd30efbcab0c39b0fe3125d}\index{prototype.h@{prototype.h}!global@{global}}
+\index{global@{global}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{global()}{global()}}
+{\footnotesize\ttfamily \label{prototype_8h_a7810f49a3dd30efbcab0c39b0fe3125d} 
+void global (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_ae2172feb72eb616287bb0fe208dfb1ae}\index{prototype.h@{prototype.h}!insertMajActivite@{insertMajActivite}}
+\index{insertMajActivite@{insertMajActivite}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{insertMajActivite()}{insertMajActivite()}}
+{\footnotesize\ttfamily \label{prototype_8h_ae2172feb72eb616287bb0fe208dfb1ae} 
+void insert\+Maj\+Activite (\begin{DoxyParamCaption}\item[{int}]{tab\+Id\+Acti}{\+[$\,$], }\item[{int}]{tab\+NbM}{\+[$\,$], }\item[{int}]{tab\+NbS}{\+[$\,$], }\item[{float}]{tab\+Pts\+Acti}{\+[$\,$], }\item[{int \texorpdfstring{$\ast$}{*}}]{tlogA}{, }\item[{int}]{max}{, }\item[{int}]{id}{, }\item[{int}]{nbreM}{, }\item[{int}]{nbreS}{, }\item[{float}]{pts\+Acti}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a1c4708da5f72cb56572cefc395075ff6}\index{prototype.h@{prototype.h}!insertMajAd@{insertMajAd}}
+\index{insertMajAd@{insertMajAd}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{insertMajAd()}{insertMajAd()}}
+{\footnotesize\ttfamily \label{prototype_8h_a1c4708da5f72cb56572cefc395075ff6} 
+void insert\+Maj\+Ad (\begin{DoxyParamCaption}\item[{int}]{tab\+Id}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+ActiM}{\+[$\,$], }\item[{int}]{tab\+ActiS}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{int \texorpdfstring{$\ast$}{*}}]{tlogA}{, }\item[{int}]{max}{, }\item[{int}]{id}{, }\item[{float}]{pts}{, }\item[{int}]{status}{, }\item[{int}]{nb\+Acti}{, }\item[{int}]{actiM}{, }\item[{int}]{actiS}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_ae457c1626ca62b3f641a2f0527c36a2f}\index{prototype.h@{prototype.h}!menuActivite@{menuActivite}}
+\index{menuActivite@{menuActivite}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{menuActivite()}{menuActivite()}}
+{\footnotesize\ttfamily \label{prototype_8h_ae457c1626ca62b3f641a2f0527c36a2f} 
+void menu\+Activite (\begin{DoxyParamCaption}\item[{int}]{tlog\+Acti}{, }\item[{int}]{tab\+IDActi}{\+[$\,$], }\item[{int}]{tab\+NbM}{\+[$\,$], }\item[{int}]{tab\+NbS}{\+[$\,$], }\item[{float}]{tab\+Pts\+Acti}{\+[$\,$]}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a3fdf82925b75c205ab0b3154485a807e}\index{prototype.h@{prototype.h}!menuAdherent@{menuAdherent}}
+\index{menuAdherent@{menuAdherent}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{menuAdherent()}{menuAdherent()}}
+{\footnotesize\ttfamily \label{prototype_8h_a3fdf82925b75c205ab0b3154485a807e} 
+void menu\+Adherent (\begin{DoxyParamCaption}\item[{int}]{tlogA}{, }\item[{int}]{tab\+ID}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+ActiM}{\+[$\,$], }\item[{int}]{tab\+ActiS}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{float}]{tab\+Pts\+Acti}{\+[$\,$], }\item[{int}]{tab\+IDActi}{\+[$\,$], }\item[{int}]{tab\+NbS}{\+[$\,$], }\item[{int}]{tab\+NbM}{\+[$\,$]}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a65cf3cf5a9fb7faae8db6a071dc2512c}\index{prototype.h@{prototype.h}!participation@{participation}}
+\index{participation@{participation}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{participation()}{participation()}}
+{\footnotesize\ttfamily \label{prototype_8h_a65cf3cf5a9fb7faae8db6a071dc2512c} 
+int participation (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{int}]{tab\+IDActi}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{float}]{tab\+Pts\+Acti}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+NbS}{\+[$\,$], }\item[{int}]{tab\+NbM}{\+[$\,$], }\item[{int}]{tab\+ActiM}{\+[$\,$], }\item[{int}]{tab\+ActiS}{\+[$\,$], }\item[{int}]{tlogA}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{trouve\+Ad}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{trouve\+Acti}{, }\item[{int}]{id\+Adherent}{, }\item[{int}]{id\+Activite}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a4303aa4ec79e49a60d1a7fa2abea38f3}\index{prototype.h@{prototype.h}!recherche@{recherche}}
+\index{recherche@{recherche}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{recherche()}{recherche()}}
+{\footnotesize\ttfamily \label{prototype_8h_a4303aa4ec79e49a60d1a7fa2abea38f3} 
+int recherche (\begin{DoxyParamCaption}\item[{int}]{tab}{\+[$\,$], }\item[{int}]{val}{, }\item[{int}]{tlog}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{trouve}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a6366b992878d5889bf16f696490a8f92}\index{prototype.h@{prototype.h}!saisirActivite@{saisirActivite}}
+\index{saisirActivite@{saisirActivite}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{saisirActivite()}{saisirActivite()}}
+{\footnotesize\ttfamily \label{prototype_8h_a6366b992878d5889bf16f696490a8f92} 
+void saisir\+Activite (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{id}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{nbreM}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{nbreS}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{pts\+Acti}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a582e574ce00e16a5eba83909dec81b3a}\index{prototype.h@{prototype.h}!saisirAdherent@{saisirAdherent}}
+\index{saisirAdherent@{saisirAdherent}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{saisirAdherent()}{saisirAdherent()}}
+{\footnotesize\ttfamily \label{prototype_8h_a582e574ce00e16a5eba83909dec81b3a} 
+void saisir\+Adherent (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{id}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{status}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{nb\+Acti}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{actiM}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{actiS}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{pts}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a2297171e05ab4cafb78cbb616ae0c9a7}\index{prototype.h@{prototype.h}!saveActi@{saveActi}}
+\index{saveActi@{saveActi}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{saveActi()}{saveActi()}}
+{\footnotesize\ttfamily \label{prototype_8h_a2297171e05ab4cafb78cbb616ae0c9a7} 
+void save\+Acti (\begin{DoxyParamCaption}\item[{int}]{tab\+IDActi}{\+[$\,$], }\item[{int}]{tab\+NbM}{\+[$\,$], }\item[{int}]{tab\+NbS}{\+[$\,$], }\item[{float}]{tab\+Pts\+Acti}{\+[$\,$], }\item[{int}]{tlog}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_ab07060cf2a0f305e30a4750386ac2ab8}\index{prototype.h@{prototype.h}!saveAd@{saveAd}}
+\index{saveAd@{saveAd}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{saveAd()}{saveAd()}}
+{\footnotesize\ttfamily \label{prototype_8h_ab07060cf2a0f305e30a4750386ac2ab8} 
+void save\+Ad (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+ActiM}{\+[$\,$], }\item[{int}]{tab\+ActiS}{\+[$\,$], }\item[{int}]{tlog}{}\end{DoxyParamCaption})}
+
+\Hypertarget{prototype_8h_a01305fa5d6f4b36ca06778d8cb749357}\index{prototype.h@{prototype.h}!supprimerAd@{supprimerAd}}
+\index{supprimerAd@{supprimerAd}!prototype.h@{prototype.h}}
+\doxysubsubsection{\texorpdfstring{supprimerAd()}{supprimerAd()}}
+{\footnotesize\ttfamily \label{prototype_8h_a01305fa5d6f4b36ca06778d8cb749357} 
+int supprimer\+Ad (\begin{DoxyParamCaption}\item[{int}]{tab\+ID}{\+[$\,$], }\item[{float}]{tab\+Pts}{\+[$\,$], }\item[{int}]{tab\+Status}{\+[$\,$], }\item[{int}]{tab\+Nb\+\_\+\+Acti}{\+[$\,$], }\item[{int}]{tab\+ActiM}{\+[$\,$], }\item[{int}]{tab\+ActiS}{\+[$\,$], }\item[{int}]{val}{, }\item[{int}]{tlog}{}\end{DoxyParamCaption})}
+

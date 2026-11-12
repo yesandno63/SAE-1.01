@@ -1,0 +1,18 @@
+\chapter{SAÉ 1.\+01 -\/ Gestion d\textquotesingle{}un complexe sportif }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{SAÉ 1.01 -\/ Gestion d\textquotesingle{}un complexe sportif@{SAÉ 1.01 -\/ Gestion d\textquotesingle{}un complexe sportif}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+
+
+Ce projet est une application en C permettant de gérer les adhérents et les activités d\textquotesingle{}un centre sportif ou de bien-\/être. Projet réalisé dans le cadre de la SAÉ 1.\+01 du BUT Informatique.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Architecture du code}{Architecture du code}}\label{md__r_e_a_d_m_e_autotoc_md1}
+Le code source a été découpé de manière modulaire pour éviter les conflits lors du travail en groupe :
+
+
+\begin{DoxyItemize}
+\item {\bfseries{{\ttfamily \doxylink{main_8c}{main.\+c}}}} : Point d\textquotesingle{}entrée du programme. Gère l\textquotesingle{}exécution principale.
+\item {\bfseries{{\ttfamily \doxylink{menus_8c}{menus.\+c}} / {\ttfamily .h}}} : Interface utilisateur, boucle de menus et navigation.
+\item {\bfseries{{\ttfamily \doxylink{adherent_8c}{adherent.\+c}} / {\ttfamily .h}}} : Gestion exclusive des adhérents (création, suppression, affichage, modification de statut, crédit de carte, chargement/\+sauvegarde).
+\item {\bfseries{{\ttfamily \doxylink{activite_8c}{activite.\+c}} / {\ttfamily .h}}} : Gestion exclusive des activités (création, suppression, affichage, chargement/\+sauvegarde).
+\item {\bfseries{{\ttfamily \doxylink{utilitaires_8c}{utilitaires.\+c}} / {\ttfamily .h}}} : Fonctions transversales (algorithme de recherche générique) et interactions croisées (participation d\textquotesingle{}un adhérent à une activité).
+\item {\bfseries{{\ttfamily /\+donnees/}}} : Dossier contenant les fichiers de persistance des données ({\ttfamily dossier\+Ad.\+txt} et {\ttfamily dossier\+Acti.\+txt}). 
+\end{DoxyItemize}
