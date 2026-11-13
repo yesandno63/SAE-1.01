@@ -1,5 +1,13 @@
 C'est un centre d'adhérent de sport exetreme nommé: Xtrem sport
-ce centre propose 4 actvitées differentes de sport : Randonnée(1), Paintball(2), Rafting(3), Escalade(4). On ne peut faire que deux activitées maximum par jour 
+ce centre propose 4 actvitées differentes de sport : Randonnée(1), Paintball(2), Rafting(3), Escalade(4). 
+On ne peut faire que deux activitées maximum par jour 
+
+
 les données des actvitées sont présenter la sous-forme: identifiant, nombre de participant le matin, nombre de participant le soir, tarif de l'actvitée
 les données des adhérents sont présenter la sous-forme: identifiant, solde, status de la carte, nombre d'activitées total, nombre d'actvitée le matin, nombre d'actvitée le soir
 le format des fichiers de sauvegarde sont: .txt
+
+tout fonctionne exepter l'affichage qui peut ne pas correctement le faire 
+
+les fonctions de saisies ont etait tester avce tout les types de valeur pour voir leur fonctionnement 
+les autres focntions ont etait elles les tester des fonctions sont dans le main.c
