@@ -129,7 +129,7 @@ void global(void) {
         }
         else if (choix == 3) {
             saveAd(tabID,tabPts,tabStatus,tabNb_Acti,tabActiM,tabActiS,tlogA);
-            saveActi(tabActiM,tabNbM,tabNbS,tabPtsActi,tlogActi);
+            saveActi(tabIDActi,tabNbM,tabNbS,tabPtsActi,tlogActi);
             printf("Sauvegarde effectue\n");
             exit(1);
         }

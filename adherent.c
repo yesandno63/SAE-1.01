@@ -27,6 +27,7 @@ int chargementAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], i
         i++;
         fscanf(flot,"%d%f%d%d%d%d", &id, &pts, &status, &nbActi, &actiM, &actiS);
     }
+    fclose(flot);
     return tlog = i;
 }
 
@@ -60,7 +61,7 @@ void saveAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], int ta
     if (flot == NULL) {exit(1);}
 
     for (int i=0; i < tlog; i++) {
-        fprintf(flot,"%d %f %d %d %d %d\n", tabID[i], tabPts[i], tabStatus[i], tabNb_Acti[i], tabActiM[i], tabActiS[i]);
+        fprintf(flot,"%d %.2f %d %d %d %d\n", tabID[i], tabPts[i], tabStatus[i], tabNb_Acti[i], tabActiM[i], tabActiS[i]);
     }
     fclose(flot);
 }
@@ -92,10 +93,7 @@ int supprimerAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], in
 }
 
 void insertMajAd(int tabId[],int tabStatus[],int tabNb_Acti[],int  tabActiM[],int tabActiS[],float tabPts[],int *tlogA, int max, int id, float pts, int status, int nbActi, int actiM, int actiS) {
-    if (*tlogA >= max) {
-        printf("Erreur : le tableau est plein.\n");
-        return;
-    }
+    
     int trouve;
     int pos = recherche(tabId, id, *tlogA, &trouve);
 
@@ -105,26 +103,34 @@ void insertMajAd(int tabId[],int tabStatus[],int tabNb_Acti[],int  tabActiM[],in
         tabNb_Acti[pos] = nbActi;
         tabActiM[pos] = actiM;
         tabActiS[pos] = actiS;
-        printf("les données ont été mises à jour");
+        printf("les données ont été mises à jour\n");
+        return;
     }
     
-    for (int i = *tlogA; i > pos; --i) {
-        tabId[i] = tabId[i - 1];
-        tabPts[i] = tabPts[i - 1];
-        tabStatus[i] = tabStatus[i - 1];
-        tabNb_Acti[i] = tabNb_Acti[i - 1];
-        tabActiM[i] = tabActiM[i - 1];
-        tabActiS[i] = tabActiS[i - 1];
-    }
-    if (trouve == 0) 
+    else {
+        if (*tlogA >= max) {
+            printf("Erreur : le tableau est plein.\n");
+            return;
+        }
+        for (int i = *tlogA ; i > pos ; i--) {
+            tabId[i] = tabId[i - 1];
+            tabPts[i] = tabPts[i - 1];
+            tabStatus[i] = tabStatus[i - 1];
+            tabNb_Acti[i] = tabNb_Acti[i - 1];
+            tabActiM[i] = tabActiM[i - 1];
+            tabActiS[i] = tabActiS[i - 1];
+        }
         printf("il vous est offère 30 pts lors de l'inscription\n");
 
-    tabId[pos] = id;
-    tabPts[pos] = pts + 30;
-    tabStatus[pos] = status;
-    tabNb_Acti[pos] = nbActi;
-    tabActiM[pos] = actiM;
-    tabActiS[pos] = actiS;
+        tabId[pos] = id;
+        tabPts[pos] = pts + 30;
+        tabStatus[pos] = status;
+        tabNb_Acti[pos] = nbActi;
+        tabActiM[pos] = actiM;
+        tabActiS[pos] = actiS;
+        *tlogA ++;
+    }
+    
 }
 
 void saisirAdherent(int *id, int *status, int *nbActi, int *actiM, int *actiS, float *pts) {
@@ -132,6 +138,10 @@ void saisirAdherent(int *id, int *status, int *nbActi, int *actiM, int *actiS, f
     scanf("%d", id);
     printf("Entrez les points de l'adhérent : ");
     scanf("%f", pts);
+    while(*pts < 0){
+        printf("Erreur: les points doivent être superieur à 0. Veuillez réessayer : ");
+        scanf("%f", pts);
+    }
     printf("Entrez le statut de la carte (0 ou 1) : ");
     scanf("%d", status);
     while(*status != 0 && *status !=1){
@@ -150,7 +160,7 @@ void saisirAdherent(int *id, int *status, int *nbActi, int *actiM, int *actiS, f
     scanf("%d", actiS);
 
     while(*actiM + *actiS != *nbActi) {
-        printf("Erreur : le nombre total d'activités ne correspond pas au nombre d'activités du matin et de l'après-midi. Veuillez réessayer : ");
+        printf("Erreur : le nombre total d'activités ne correspond pas au nombre d'activités du matin et de l'après-midi. Veuillez réessayer :\n ");
         printf("Entrez le nombre d'activités du matin : ");
         scanf("%d", actiM);
         printf("Entrez le nombre d'activités de l'après-midi : ");

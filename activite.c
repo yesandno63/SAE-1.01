@@ -24,6 +24,7 @@ int chargementActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[
         tlog ++;
         fscanf(flot,"%d%d%d%f",&idActi, &nbM, &nbS, &ptsA);
     }
+    fclose(flot);
     return tlog;
 }
 
@@ -34,7 +35,7 @@ void affichageActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[
     if (rep == 1){
         printf("entrez l'identifiant de l'actvite : ");
         scanf("%d", &idA);
-        for (i = 0; i < tlogA; i++)
+        for (i = 0; i <= tlogA; i++)
             if (tabIDActi[i] == idA){
             marc = 1;
               printf("identifiants Activite: %d\nnombre de participant matin : %d\nnombre de participant soir: %d\ncoût %.2f\n", tabIDActi[i], tabNbM[i], tabNbS[i], tabPtsActi[i]);
@@ -54,11 +55,12 @@ void affichageActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[
 }
 
 void saveActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[],int tlog) {
+    int i;
     FILE *flot = fopen("donnees/dossierActi.txt","w");
     if (flot == NULL) {exit(1);}
 
-    for (int i=0; i < tlog; i++) {
-        fprintf(flot,"%d %d %d %f",tabIDActi[i],tabNbM[i], tabNbS[i], tabPtsActi[i]);
+    for (i=0; i < tlog; i++) {
+        fprintf(flot,"%d %d %d %.2f\n",tabIDActi[i],tabNbM[i], tabNbS[i], tabPtsActi[i]);
     }
     fclose(flot);
 }
@@ -82,29 +84,33 @@ int supprimerActi(int tabIDActi[], int tabNbM[], int tabNbS[], float tabPtsActi[
 }
 
 void insertMajActivite(int tabIdActi[],int tabNbM[], int tabNbS[], float tabPtsActi[],int *tlogA, int max, int id, int nbreM, int nbreS, float ptsActi) {
-    if (*tlogA >= max) {
-        printf("Erreur : le tableau est plein.\n");
-        return;
-    }
+    
     int trouve;
     int pos = recherche(tabIdActi, id, *tlogA, &trouve);
 
-    if (trouve) {
+    if (trouve == 1) {
         tabNbM[pos] = nbreM;
         tabNbS[pos] = nbreS;
         tabPtsActi[pos] = ptsActi;
-        printf("les données ont été mises à jour");
+        printf("les données ont été mises à jour\n");
     }
-    for (int i = *tlogA; i > pos; --i) {
-        tabIdActi[i] = tabIdActi[i - 1];
-        tabNbM[i] = tabNbM[i - 1];
-        tabNbS[i] = tabNbS[i - 1];
-        tabPtsActi[i] = tabPtsActi[i - 1];
+    if(trouve == 0){
+        if (*tlogA >= max) {
+            printf("Erreur : le tableau est plein.\n");
+            return;
+        }
+        for (int i = *tlogA ; i > pos ; i--) {
+            tabIdActi[i] = tabIdActi[i - 1];
+            tabNbM[i] = tabNbM[i - 1];
+            tabNbS[i] = tabNbS[i - 1];
+            tabPtsActi[i] = tabPtsActi[i - 1];
+        }
+        tabIdActi[pos] = id;
+        tabNbM[pos] = nbreM;
+        tabNbS[pos] = nbreS;
+        tabPtsActi[pos] = ptsActi;
+        *tlogA ++;
     }
-    tabIdActi[pos] = id;
-    tabNbM[pos] = nbreM;
-    tabNbS[pos] = nbreS;
-    tabPtsActi[pos] = ptsActi;
 }
 
 void saisirActivite(int *id, int *nbreM, int *nbreS, float *ptsActi) {
