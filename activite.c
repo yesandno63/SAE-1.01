@@ -57,7 +57,9 @@ void affichageActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[
 void saveActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[],int tlog) {
     int i;
     FILE *flot = fopen("donnees/dossierActi.txt","w");
-    if (flot == NULL) {exit(1);}
+    if (flot == NULL) {
+        printf("le fichier n'a pas etait ouvert");
+        exit(1);}
 
     for (i=0; i < tlog; i++) {
         fprintf(flot,"%d %d %d %.2f\n",tabIDActi[i],tabNbM[i], tabNbS[i], tabPtsActi[i]);

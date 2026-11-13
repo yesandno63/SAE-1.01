@@ -58,7 +58,9 @@ void affichageAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], i
 
 void saveAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], int tabActiM[], int tabActiS[],int tlog) {
     FILE *flot = fopen("donnees/dossierAd.txt","w");
-    if (flot == NULL) {exit(1);}
+    if (flot == NULL) {
+        printf("le fichier n'a pas etait ouvert");
+        exit(1);}
 
     for (int i=0; i < tlog; i++) {
         fprintf(flot,"%d %.2f %d %d %d %d\n", tabID[i], tabPts[i], tabStatus[i], tabNb_Acti[i], tabActiM[i], tabActiS[i]);
@@ -76,7 +78,7 @@ int supprimerAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], in
     }
     if (trouve == 1 && tabPts[pos] != 0) {
         printf("L'adhérent avec l'identifiant %d ne peut pas être supprimé car il a encore des points.\n", val);
-        printf("vous aller etre rembourse de 80%% de vos points soit %.2f\n", tabPts[pos]*0.8);
+        printf("vous aller etre rembourse de 80%% de vos points soit %.2f\n", (tabPts[pos]*80)/100.0);
         return tlog; 
     }
 
