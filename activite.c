@@ -35,7 +35,7 @@ void affichageActi(int tabIDActi[],int tabNbM[], int tabNbS[], float tabPtsActi[
     if (rep == 1){
         printf("entrez l'identifiant de l'actvite : ");
         scanf("%d", &idA);
-        for (i = 0; i <= tlogA; i++)
+        for (i = 0; i < tlogA; i++)
             if (tabIDActi[i] == idA){
             marc = 1;
               printf("identifiants Activite: %d\nnombre de participant matin : %d\nnombre de participant soir: %d\ncoût %.2f\n", tabIDActi[i], tabNbM[i], tabNbS[i], tabPtsActi[i]);
@@ -111,7 +111,7 @@ void insertMajActivite(int tabIdActi[],int tabNbM[], int tabNbS[], float tabPtsA
         tabNbM[pos] = nbreM;
         tabNbS[pos] = nbreS;
         tabPtsActi[pos] = ptsActi;
-        *tlogA ++;
+        (*tlogA)++;
     }
 }
 

@@ -77,9 +77,8 @@ int supprimerAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], in
         return tlog;
     }
     if (trouve == 1 && tabPts[pos] != 0) {
-        printf("L'adhérent avec l'identifiant %d ne peut pas être supprimé car il a encore des points.\n", val);
-        printf("vous aller etre rembourse de 80%% de vos points soit %.2f\n", (tabPts[pos]*80)/100.0);
-        return tlog; 
+        printf("L'adhérent avec l'identifiant %d va être supprimé.\n", val);
+        printf("Remboursement intégral du solde de la carte, soit %.2f points.\n", tabPts[pos]);
     }
 
     for ( i = pos; i < tlog - 1; ++i) {
@@ -91,7 +90,7 @@ int supprimerAd(int tabID[],float tabPts[],int tabStatus[], int tabNb_Acti[], in
         tabActiS[i] = tabActiS[i + 1];
     }
     printf("L'adhérent avec l'identifiant %d a été supprimé.\n", val);
-    return tlog - 1; 
+    return tlog - 1;
 }
 
 void insertMajAd(int tabId[],int tabStatus[],int tabNb_Acti[],int  tabActiM[],int tabActiS[],float tabPts[],int *tlogA, int max, int id, float pts, int status, int nbActi, int actiM, int actiS) {
@@ -130,7 +129,7 @@ void insertMajAd(int tabId[],int tabStatus[],int tabNb_Acti[],int  tabActiM[],in
         tabNb_Acti[pos] = nbActi;
         tabActiM[pos] = actiM;
         tabActiS[pos] = actiS;
-        *tlogA ++;
+        (*tlogA)++;
     }
     
 }

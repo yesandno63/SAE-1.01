@@ -115,6 +115,7 @@ void global(void) {
     tlogActi=chargementActi(tabIDActi,tabNbM,tabNbS,tabPtsActi,max);
 
     while (1) {
+        printf("\n=== Bienvenue au Complexe Sportif Xtrem ===\n");
         printf("1. Menu Adherent\n");
         printf("2. Menu Activite\n");
         printf("3. Exit\n");
